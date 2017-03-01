@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        hgjinfan&#39;s blog
+        封装函数得到计算后样式｜hgjinfan&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://hgjinfan.github.io/archives/2016/">
+    <link rel="canonical" href="http://hgjinfan.github.io/2014/10/13/计算后样式/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -132,171 +132,198 @@
 
 <!-- Main Content -->
 
+<!--only post-->
 
-<!-- Page Header -->
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
-    <div class="row">
-        <header class="intro-header">
-            <div class="container">
-                <div class="site-heading text-center">
-                    <div class="about-me">
-                        <!--移动端头部显示-->
-                        <img src="http://ol6za00s5.bkt.clouddn.com/avtar.jpeg"/>
-                        <h5><a href="/about/">hgjinfan</a></h5>
-                        <p>学如逆水行舟 不进则退</p>
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>封装函数得到计算后样式</h1>
+                    
+                    <span class="meta">
+                         作者 hgjinfan
+                        <span>
+                          日期 2014-10-13
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#DOM操作　JS"
+                           title="DOM操作　JS">DOM操作　JS</a>
+                        
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
     </div>
-</div>
-<!-- Main Content -->
-<div class="container custom-haojen-container">
-    <!-- Post Container -->
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
-            <!-- Main Content -->
+    <div class="post-title-haojen">
+        <span>
+            封装函数得到计算后样式
+        </span>
+    </div>
+</header>
 
-
-
-<div class="post-preview "
-     style="background-image: url('http://ol6za00s5.bkt.clouddn.com/bg.jpg')">
-    <a href="/2016/02/11/初探angular/">
-        <h2 class="post-title">
-            初探angular
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2016-02-11
-        </p>
-        
-        <h3 class="post-subtitle">
-            angular奇妙之旅
-        </h3>
-        
-        <div class="post-content-preview">
-            <p>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p>封装函数：用于得到计算后样式</p>
+<pre><code>//封装一个函数，兼容高级浏览器和低版本浏览器
+    function fetchComputedStyle(ele,property){
+        //判断是高级浏览器还是低版本
+        //能力测试判断
+        if(window.getComputedStyle){
+            //针对用户输入的属性名进行兼容写法，不管是不是驼峰，都改成横线写法
+            property = property.replace(/([A-Z])/g,function(match,$1){
+                return &quot;-&quot; + $1.toLowerCase();
+            });
+            return window.getComputedStyle(ele)[property];
+        }else if(ele.currentStyle){
+            //针对用户输入的属性名进行兼容写法，不管是不是驼峰，都改成驼峰
+            property = property.replace(/\-([a-z])/gi,function(match,$1){
+                return $1.toUpperCase();
+            });
+            return ele.currentStyle[property];
+        }
+    }
+</code></pre>
+                <hr>
                 
-简介
-AngularJS诞生于2009年，是Google的产品。是一款优秀的前端JS框架，已经被用于Google的多款产品当中。AngularJS有着诸多特性，最为核心的是：MVC、模块化、自动化双向数据绑定、语义化标签、依赖注入等等。
-
-angular的创始人自述：
-AngularJS是为了..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-
-<!-- 翻页 pager -->
-
-<ul class="pager">
-    
-    
-</ul>
-
-
-        </div>
-        <!-- Sidebar Container -->
-        <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
-
-            <!-- About Me -->
-            <section class="visible-md visible-lg" style="padding: 0 18px">
-                <div class="short-about">
-                    <!--侧边栏头像-->
-                    
-                    <img src="http://ol6za00s5.bkt.clouddn.com/avtar.jpeg"/>
-                    
-                    <h5><a href="/about/">hgjinfan</a></h5>
-                    
-                    <p>学如逆水行舟 不进则退</p>
-                    
+                <!-- 多说 Share start -->
+                <div class="ds-share"
+                     style="text-align: right"
+                     data-thread-key="2014/10/13/计算后样式/"
+                     data-title="封装函数得到计算后样式"
+                     data-url="http://hgjinfan.github.io/2014/10/13/计算后样式/"
+                     data-images=""
+                     data-content="封装函数：用于得到计算后样式
+//封装一个函数，兼容高级浏览器和低版本浏览器
+    func... | hgjinfan&#39;s blog ">
+                    <div class="ds-share-inline">
+                        <ul class="ds-share-icons-16">
+                            <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                            <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                            <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                            <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                        </ul>
+                        <div class="ds-share-icons-more">
+                        </div>
+                    </div>
                     <hr>
-                    <!-- SNS Link 社交 -->
-                    <ul class="list-inline">
-                        
-                        
-                        
-                        <li>
-                            <a target="_blank" href="https://www.zhihu.com/people/xu-gao-xiang-9">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                            </a>
-                        </li>
-                        
-
-                        
-                        <li>
-                            <a target="_blank" href="http://weibo.com/2061821391">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
-
-                        
-
-                        
-                        <li>
-                            <a target="_blank" href="https://github.com/hgjinfan">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
-
-                        
-                        <li>
-                            <a target="_blank" href="https://www.linkedin.com/in/高翔-徐-92b99a121">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
-                    </ul>
                 </div>
-            </section>
+                <!-- 多说 Share end-->
+                
 
-            <!-- Featured Tags  标签 -->
-            
-            <section>
-                <div class="tags">
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2016/02/11/初探angular/" data-toggle="tooltip" data-placement="top"
+                           title="初探angular">&larr; Previous Post</a>
+                    </li>
                     
                     
+                    <li class="next">
+                        <a href="/2014/10/11/如何编写可维护的CSS/" data-toggle="tooltip" data-placement="top"
+                           title="如何编写可维护的CSS【转载】">Next Post &rarr;</a>
+                    </li>
                     
-                    
-                    
-                    
-                    
-                    
+                </ul>
+
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                         data-thread-key="2014/10/13/计算后样式/"
+                         data-title="封装函数得到计算后样式"
+                         data-url="http://hgjinfan.github.io/2014/10/13/计算后样式/">
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
                     
                 </div>
-            </section>
-            
-
-            
-
+            </div>
         </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#DOM操作　JS"
+                           title="DOM操作　JS">DOM操作　JS</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
     </div>
-</div>
+</article>
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User by Hux
+    var _user = 'hugejinfan';
+
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user};
+    (function () {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
 
 <!-- Footer -->
 <!-- Footer -->
